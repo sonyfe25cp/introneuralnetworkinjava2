@@ -20,8 +20,8 @@ import com.heatonresearch.book.introneuralnet.neural.feedforward.train.backpropa
 /**
  * Chapter 5: The Feedforward Backpropagation Neural Network
  * 
- * XOR: Learn the XOR pattern with a feedforward neural network that
- * uses backpropagation.
+ * XOR: Learn the XOR pattern with a feedforward neural network that uses
+ * backpropagation.
  * 
  * @author Jeff Heaton
  * @version 2.1

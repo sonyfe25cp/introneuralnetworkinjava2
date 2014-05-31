@@ -23,15 +23,13 @@ import com.heatonresearch.book.introneuralnet.neural.matrix.MatrixCODEC;
 import com.heatonresearch.book.introneuralnet.neural.util.ErrorCalculation;
 
 /**
- * FeedforwardNeuralNetwork: This class implements a feed forward
- * neural network.  This class works in conjunction the 
- * FeedforwardLayer class.  Layers are added to the 
- * FeedforwardNeuralNetwork to specify the structure of the neural
- * network.
+ * FeedforwardNeuralNetwork: This class implements a feed forward neural
+ * network. This class works in conjunction the FeedforwardLayer class. Layers
+ * are added to the FeedforwardNeuralNetwork to specify the structure of the
+ * neural network.
  * 
- * The first layer added is the input layer, the final layer added
- * is the output layer.  Any layers added between these two layers
- * are the hidden layers.
+ * The first layer added is the input layer, the final layer added is the output
+ * layer. Any layers added between these two layers are the hidden layers.
  * 
  * @author Jeff Heaton
  * @version 2.1
@@ -41,22 +39,22 @@ public class FeedforwardNetwork implements Serializable {
 	 * Serial id for this class.
 	 */
 	private static final long serialVersionUID = -136440631687066461L;
-	
+
 	/**
 	 * The input layer.
 	 */
 	protected FeedforwardLayer inputLayer;
-	
+
 	/**
 	 * The output layer.
 	 */
 	protected FeedforwardLayer outputLayer;
-	
+
 	/**
 	 * All of the layers in the neural network.
 	 */
 	protected List<FeedforwardLayer> layers = new ArrayList<FeedforwardLayer>();
-	
+
 	/**
 	 * Construct an empty neural network.
 	 */
@@ -67,7 +65,8 @@ public class FeedforwardNetwork implements Serializable {
 	 * Add a layer to the neural network. The first layer added is the input
 	 * layer, the last layer added is the output layer.
 	 * 
-	 * @param layer The layer to be added.
+	 * @param layer
+	 *            The layer to be added.
 	 */
 	public void addLayer(final FeedforwardLayer layer) {
 		// setup the forward and back pointer
@@ -105,8 +104,7 @@ public class FeedforwardNetwork implements Serializable {
 
 		for (int i = 0; i < ideal.length; i++) {
 			computeOutputs(input[i]);
-			errorCalculation.updateError(this.outputLayer.getFire(), 
-					ideal[i]);
+			errorCalculation.updateError(this.outputLayer.getFire(), ideal[i]);
 		}
 		return (errorCalculation.calculateRMS());
 	}
@@ -139,7 +137,7 @@ public class FeedforwardNetwork implements Serializable {
 	}
 
 	/**
-	 * Return a clone of the structure of this neural network. 
+	 * Return a clone of the structure of this neural network.
 	 * 
 	 * @return A cloned copy of the structure of the neural network.
 	 */
@@ -148,8 +146,8 @@ public class FeedforwardNetwork implements Serializable {
 		final FeedforwardNetwork result = new FeedforwardNetwork();
 
 		for (final FeedforwardLayer layer : this.layers) {
-			final FeedforwardLayer clonedLayer = new FeedforwardLayer(layer
-					.getNeuronCount());
+			final FeedforwardLayer clonedLayer = new FeedforwardLayer(
+					layer.getNeuronCount());
 			result.addLayer(clonedLayer);
 		}
 
@@ -162,8 +160,10 @@ public class FeedforwardNetwork implements Serializable {
 	 * @param input
 	 *            The input provide to the neural network.
 	 * @return The results from the output neurons.
-	 * @throws MatrixException A matrix error occurred.
-	 * @throws NeuralNetworkException A neural network error occurred.
+	 * @throws MatrixException
+	 *             A matrix error occurred.
+	 * @throws NeuralNetworkException
+	 *             A neural network error occurred.
 	 */
 	public double[] computeOutputs(final double input[]) {
 
@@ -227,6 +227,7 @@ public class FeedforwardNetwork implements Serializable {
 
 	/**
 	 * Get the count for how many hidden layers are present.
+	 * 
 	 * @return The hidden layer count.
 	 */
 	public int getHiddenLayerCount() {
@@ -235,6 +236,7 @@ public class FeedforwardNetwork implements Serializable {
 
 	/**
 	 * Get a collection of the hidden layers in the network.
+	 * 
 	 * @return The hidden layers.
 	 */
 	public Collection<FeedforwardLayer> getHiddenLayers() {
@@ -249,6 +251,7 @@ public class FeedforwardNetwork implements Serializable {
 
 	/**
 	 * Get the input layer.
+	 * 
 	 * @return The input layer.
 	 */
 	public FeedforwardLayer getInputLayer() {
@@ -257,6 +260,7 @@ public class FeedforwardNetwork implements Serializable {
 
 	/**
 	 * Get all layers.
+	 * 
 	 * @return All layers.
 	 */
 	public List<FeedforwardLayer> getLayers() {
@@ -265,6 +269,7 @@ public class FeedforwardNetwork implements Serializable {
 
 	/**
 	 * Get the output layer.
+	 * 
 	 * @return The output layer.
 	 */
 	public FeedforwardLayer getOutputLayer() {
@@ -273,6 +278,7 @@ public class FeedforwardNetwork implements Serializable {
 
 	/**
 	 * Get the size of the weight and threshold matrix.
+	 * 
 	 * @return The size of the matrix.
 	 */
 	public int getWeightMatrixSize() {
